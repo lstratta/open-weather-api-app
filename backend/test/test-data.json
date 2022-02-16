@@ -1,0 +1,35 @@
+{ 
+    "Plymouth" : 
+        [
+            {
+                "coord": { "lon": -4.1431, "lat": 50.3715 },
+                "weather": [ { "id": 500, "main": "Rain", "description": "light rain", "icon": "10d" } ],
+                "base": "stations",
+                "main": {
+                "temp": 285.88,
+                "feels_like": 285.74,
+                "temp_min": 283.79,
+                "temp_max": 288.37,
+                "pressure": 1000,
+                "humidity": 97
+                },
+                "visibility": 10000,
+                "wind": { "speed": 5.81, "deg": 251, "gust": 10.28 },
+                "rain": { "1h": 0.12 },
+                "clouds": { "all": 100 },
+                "dt": 1645026785,
+                "sys": {
+                "type": 2,
+                "id": 2010131,
+                "country": "GB",
+                "sunrise": 1644996394,
+                "sunset": 1645032900
+                },
+                "timezone": 0,
+                "id": 2640194,
+                "name": "Plymouth",
+                "cod": 200
+            }
+        ]
+}
+  
