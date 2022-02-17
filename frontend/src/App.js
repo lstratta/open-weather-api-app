@@ -1,14 +1,18 @@
-import './App.css';
+import BootstrapTest from './components/BootsrapTest';
 
-const App = () => {
+// import './css/App.css';
+
+export default function App () {
 
   return (
   
-    <div className="App">
-  
+    <div className="container">
+      
+      {/* <h1 className='row justify-content-center'>Weather App</h1> */}
+
+      {/* <BootstrapTest/> */}
   
     </div>
   );
 }
 
-export default App;
