@@ -5,13 +5,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App () {
 
+  const LOCAL_SERVER_URL = "http://localhost:5000";
+
   return (
   
     <div className="container">
 
-      <NavBar/>
+      <NavBar />
 
-      <HomePage/>
+      <HomePage serverURL={LOCAL_SERVER_URL}/>
   
     </div>
   );

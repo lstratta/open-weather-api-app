@@ -6,11 +6,7 @@ export default function NavBar() {
 
         <div>
 
-            <div className="row justify-content-center">
-
-                <h1 className="col-4 mt-3">The Weather App</h1>
-
-            </div>
+            
 
         </div>
     );

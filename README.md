@@ -45,7 +45,7 @@ This will allow me to understand what each of these languages can do, and make m
 To test this project locally, you'll need to generate your own free API key at https://openweathermap.org (you can't have mine, soz).
 
 1. Open a terminal and `git clone` the repo
-2. `cd` into the root folder, then into .env
+2. `cd` into the root folder, then into `ENV_VARIABLES`
 3. Create a file called `.env.prod` and input the folllowing code (without the curly braces):
 ```
 API_KEY={Your API Key}
