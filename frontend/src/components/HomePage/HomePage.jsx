@@ -53,12 +53,18 @@ export default function HomePage ( {serverURL}) {
         event.preventDefault();
 
         getData();
+        getWeatherIcon();
     }
 
-    useEffect( () => {
-        getWeatherIcon();
-    }, [weatherData]);
+    // useEffect( () => {
+    //     getWeatherIcon();
+    // }, []);
 
+    useEffect(() => {
+        setTimeout(() => {
+            getWeatherIcon();
+        }, 500);
+      }, [ weatherData ]);
 
     function dayOrNightLogic(day, night ) {
         
@@ -162,7 +168,7 @@ export default function HomePage ( {serverURL}) {
             <div className='row justify-content-center'>
 
                 { weatherData && <h3 className='col-4 col-sm-4 col-md-3 col-lg-3 col-xl-2'>{weatherData.name}, {weatherData.sys.country}</h3> }
-                <img className='col-4 col-sm-4 col-md-3 col-lg-3 col-xl-2' src={weatherIcon} alt="/cloud" />
+                { weatherData && <img className='col-4 col-sm-4 col-md-3 col-lg-3 col-xl-2' src={weatherIcon} alt="Weather Icon" /> }
             </div>
 
         </div>
