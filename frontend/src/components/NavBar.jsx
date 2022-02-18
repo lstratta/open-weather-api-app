@@ -1,16 +1,17 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function NavBar() {
 
     return(
 
-        <div className="container">
+        <div>
 
             <div className="row justify-content-center">
-                <div className="col-md-4 p-3">
-                    <h1>The Weather App</h1>
-                </div>
+
+                <h1 className="col-4 mt-3">The Weather App</h1>
+
             </div>
-            
+
         </div>
     );
 }
