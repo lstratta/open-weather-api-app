@@ -39,6 +39,7 @@ export default function HomePage ( {serverURL}) {
     //console.log(serverURL)
 
     async function getData  () {
+
         await axios.get(`${serverURL}/current-weather/${city}/metric`)
             .then(res => {
                 setWeatherData(res.data);
@@ -48,10 +49,6 @@ export default function HomePage ( {serverURL}) {
             })
         
     } 
-
-    
-
-
 
     function dayOrNightLogic(day, night ) {
         
@@ -67,6 +64,7 @@ export default function HomePage ( {serverURL}) {
         }
     }
 
+    // A very ugly switch statement
     function getWeatherIcon () {
 
         console.log("WEATHER DATA ID" + weatherData.weather[0].id);
@@ -204,7 +202,28 @@ export default function HomePage ( {serverURL}) {
             case 232:
                 setWeatherIcon(cloudLightningRainIcon) 
                 break;
-            case 701 || 711 || 721 || 731 || 751 || 761 || 762 || 771:
+            case 701:
+                setWeatherIcon(cloudHazeIcon) 
+                break;
+            case 711:
+                setWeatherIcon(cloudHazeIcon) 
+                break;
+            case 721:
+                setWeatherIcon(cloudHazeIcon) 
+                break;
+            case 731:
+                setWeatherIcon(cloudHazeIcon) 
+                break;
+            case 751:
+                setWeatherIcon(cloudHazeIcon) 
+                break;
+            case 761:
+                setWeatherIcon(cloudHazeIcon) 
+                break;
+            case 762:
+                setWeatherIcon(cloudHazeIcon) 
+                break;
+            case 771:
                 setWeatherIcon(cloudHazeIcon) 
                 break;
             case 741:
@@ -220,7 +239,6 @@ export default function HomePage ( {serverURL}) {
         event.preventDefault();
 
         getData();
-        getWeatherIcon();
     }
 
     useEffect(() => {
