@@ -1,16 +1,17 @@
-import BootstrapTest from './components/BootsrapTest';
+import HomePage from "./components/HomePage/HomePage";
+import NavBar from "./components/NavBar";
 
-// import './css/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App () {
 
   return (
   
     <div className="container">
-      
-      {/* <h1 className='row justify-content-center'>Weather App</h1> */}
 
-      {/* <BootstrapTest/> */}
+      <NavBar/>
+
+      <HomePage/>
   
     </div>
   );
