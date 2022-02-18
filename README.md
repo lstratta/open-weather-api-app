@@ -5,12 +5,13 @@
 * Work with test-driven development
 * Work with an API
 * Work with responsive data
-* Create secure login system
+* Create a secure login system
 * Create a frontend that works with data and is responsive
 * To create a CI/CD pipeline, deploy the application on AWS and to use Jenkins
+* Work with Git
 
 ### Purpose of each element
-----
+
 Frontend - ReactJS
 * To present data in an intuitive way and allow the user to navigate the page and find information easily
 * To learn and develop my web design skills
@@ -33,22 +34,65 @@ This will allow me to understand what each of these languages can do, and make m
 
 
 ### The Tech Stack
+
+* ReactJS with Bootstrap
+* NodeJS
+* ExpressJS
+* Mongoose and MongoDB
+
+## To Download, install and run the project
 ---
-ReactJS with Bootstrap
-NodeJS
-ExpressJS
-Mongoose and MongoDB
+To test this project locally, you'll need to generate your own free API key at https://openweathermap.org (you can't have mine, soz).
 
-### Tuesday 15th February 2022 - Monday 21st
+1. Open a terminal and `git clone` the repo
+2. `cd` into the root folder, then into .env
+3. Create a file called `.env.prod` and input the folllowing code (without the curly braces):
+```
+API_KEY={Your API Key}
+```
+### Starting the backend server
+4. `cd` into the root folder, then into `backend`
+* On MacOS/Linux
+5. Run the command: `npm start`
+* On Windows
+6. Run the command: `npm startwin`
 
- February 2022
-Day 1:
-* Set up the project
-* Used Create React App, as the frontend then created a NodeJS and ExpressJS backend for connecting to the Open Weather API
-* Multiple reasons for backend:
-    * To keep my API secret (it doesn’t really matter in this case if it gets leaked, but I want to learn how to keep them secure)
-    * Future implementation of features
-    * Login screen
-* Access to a database
-* Got the API working
-* Got two backend tests up and running
+### Starting the frontend server
+7. Open a new terminal
+8. `cd` into the root folder, then into `frontend`
+9. Run the command: `npm start`
+
+From there, you should be able to use the project.
+
+## User Stories
+---
+```
+As a user, 
+I want to be able to view the current weather,
+So that I can leave the house with the correct clothing.
+
+As a user,
+I want to be able to view the forecast for the next hour, 
+So that I can leave the house prepared.
+
+As a user,
+I want to be able to view the forecast for the next 48 hours,
+So that I can plan my weekend.
+
+As a user,
+I want to be able to view the forecast for the next 7 days,
+So that I won’t be caught out.
+
+As a user,
+I want to be able to create an account,
+So that I can easily find weather information on my preferred places
+
+As a user, 
+I want the site to automatically find my location,
+So that I don’t have to manually enter my current location every time
+
+As a user,
+I want to see government warnings for my local area,
+So that I remain safe in the current weather conditions.
+```
+

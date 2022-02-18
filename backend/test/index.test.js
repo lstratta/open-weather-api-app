@@ -9,7 +9,7 @@ const server = require('../server/server');
 
 describe('Test Suite', () => {
     
-    describe('Testing getting data from Open Weather API', () => {
+    describe('Testing getting data from OpenWeather API', () => {
 
         it('TEST 1: Can make a GET request to backend server', async () => {
 
@@ -45,7 +45,7 @@ describe('Test Suite', () => {
 
     describe(`Testing database integration`, () => {
 
-        xit(`TEST 1: /GET test on / route should return sampleData`, async () => {
+        xit(`TEST 1: GET request should return sampleData`, async () => {
 
             const res = await chai.request(server)
                 .get(`/`)
