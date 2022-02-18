@@ -53,7 +53,6 @@ export default function HomePage ( {serverURL}) {
         event.preventDefault();
 
         getData();
-        getWeatherIcon();
     }
 
     // useEffect( () => {
@@ -71,12 +70,12 @@ export default function HomePage ( {serverURL}) {
         let currentTime = new Date();
         
         if ( (currentTime + weatherData.timezone) >= weatherData.sys.sunrise && (currentTime + weatherData.timezone) <= weatherData.sys.sunset){
-            setWeatherIcon(day) // sun icon
             console.log("daytime")
+            setWeatherIcon(day) // sun icon
         }
         else {
-            setWeatherIcon(night) // moon icon
             console.log("nightime")
+            setWeatherIcon(night) // moon icon
         }
     }
 
