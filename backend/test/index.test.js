@@ -11,26 +11,47 @@ describe('Test Suite', () => {
     
     describe('Testing getting data from Open Weather API', () => {
 
-        it('TEST 1: Can make a GET request to server', async () => {
+        it('TEST 1: Can make a GET request to backend server', async () => {
 
             const res = await chai.request(server)
                             .get('/')
                             .send();
-
-            console.log("RES" + res.body)
             
             expect(res).to.have.status(200);
             expect(res.body).to.be.a('string').eql('Page found')
-        }),
+        })
 
-        it('TEST 2: Can make get request to Open Weather API for current day data', async () => {
+        it('TEST 2: Can make GET request to OpenWeather API for current day data at specific location', async () => {
 
             res = await chai.request(server)
-                    .get('/current-weather')
+                    .get('/current-weather/london/uk/metric')
                     .send();
 
             expect(res).to.have.status(200);
             (res.body).should.have.property('coord');
+        })
+
+        
+ 
+    })
+
+    describe(`Testing error handling`, () => {
+
+        xit(`TEST 1: Incorrect input handled correctly`, () => {
+
+        })
+
+    })
+
+    describe(`Testing database integration`, () => {
+
+        xit(`TEST 1: /GET test on / route should return sampleData`, async () => {
+
+            const res = await chai.request(server)
+                .get(`/`)
+                .send();
+
+            expect(res).to.have.status(200);
         })
     })
 })

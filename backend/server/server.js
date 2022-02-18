@@ -8,6 +8,8 @@ const app = express();
 
 const PORT = process.env.PORT;
 
+console.log(process.env.NODE_ENV)
+
 const homeRoutes = require('./routes/index');
 const testRoutes = require('./routes/test-data');
 
@@ -16,8 +18,10 @@ const testRoutes = require('./routes/test-data');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
+
 // HTTP request logger
-app.use(morgan('tiny'));
+if (process.env.NODE_ENV !== "test") app.use(morgan('tiny'));
+
 
 app.use('/', homeRoutes);
 app.use('/test-data', testRoutes);
