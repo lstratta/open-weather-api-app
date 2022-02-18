@@ -49,21 +49,9 @@ export default function HomePage ( {serverURL}) {
         
     } 
 
-    function onFormSubmit(event) {
-        event.preventDefault();
+    
 
-        getData();
-    }
 
-    // useEffect( () => {
-    //     getWeatherIcon();
-    // }, []);
-
-    useEffect(() => {
-        setTimeout(() => {
-            getWeatherIcon();
-        }, 500);
-      }, [ weatherData ]);
 
     function dayOrNightLogic(day, night ) {
         
@@ -87,7 +75,10 @@ export default function HomePage ( {serverURL}) {
             case 800:
                 dayOrNightLogic(sunIcon, moonIcon);
                 break;
-            case 801 || 802:
+            case 801:
+                dayOrNightLogic(cloudSunIcon, cloudMoonIcon);
+                break;
+            case 802:
                 dayOrNightLogic(cloudSunIcon, cloudMoonIcon);
                 break;
             case 803:
@@ -96,25 +87,121 @@ export default function HomePage ( {serverURL}) {
             case 804:
                 setWeatherIcon(cloudsIcon) 
                 break;
-            case 500 || 520 || 300 || 301 || 302 || 310 || 311 || 312 || 313 || 314 || 321:
+            case 321:
                 setWeatherIcon(cloudDrizzleIcon) 
                 break;
-            case 501 || 521:
+            case 314:
+                setWeatherIcon(cloudDrizzleIcon) 
+                break;
+            case 313:
+                setWeatherIcon(cloudDrizzleIcon) 
+                break;
+            case 312:
+                setWeatherIcon(cloudDrizzleIcon) 
+                break;
+            case 311:
+                setWeatherIcon(cloudDrizzleIcon) 
+                break;
+            case 310:
+                setWeatherIcon(cloudDrizzleIcon) 
+                break;
+            case 302:
+                setWeatherIcon(cloudDrizzleIcon) 
+                break;
+            case 301:
+                setWeatherIcon(cloudDrizzleIcon) 
+                break;
+            case 300:
+                setWeatherIcon(cloudDrizzleIcon) 
+                break;
+            case 520 :
+                setWeatherIcon(cloudDrizzleIcon) 
+                break;
+            case 500:
+                setWeatherIcon(cloudDrizzleIcon) 
+                break;
+            case 521:
                 setWeatherIcon(cloudRainIcon) 
                 break;
-            case 502 || 503 || 504 || 522 || 531:
+            case 501:
+                setWeatherIcon(cloudRainIcon) 
+                break;
+            case 502:
                 setWeatherIcon(cloudRainHeavyIcon) 
                 break;
-            case 511 || 601 || 602 || 615 || 616 || 620 || 621 || 622:
+            case 503:
+                setWeatherIcon(cloudRainHeavyIcon) 
+                break;
+            case 504:
+                setWeatherIcon(cloudRainHeavyIcon) 
+                break;
+            case 522:
+                setWeatherIcon(cloudRainHeavyIcon) 
+                break;
+            case 531:
+                setWeatherIcon(cloudRainHeavyIcon) 
+                break;
+            case 622:
                 setWeatherIcon(cloudSnowIcon) 
                 break;
-            case 611 || 612 || 613:
+            case 621:
+                setWeatherIcon(cloudSnowIcon) 
+                break;
+            case 620:
+                setWeatherIcon(cloudSnowIcon) 
+                break;
+            case 616:
+                setWeatherIcon(cloudSnowIcon) 
+                break;
+            case 615:
+                setWeatherIcon(cloudSnowIcon) 
+                break;
+            case 602:
+                setWeatherIcon(cloudSnowIcon) 
+                break;
+            case 601:
+                setWeatherIcon(cloudSnowIcon) 
+                break;
+            case 511:
+                setWeatherIcon(cloudSnowIcon) 
+                break;
+            case 611:
                 setWeatherIcon(cloudSleetIcon) 
                 break;
-            case 210 || 211 || 212 || 221:
+            case 612:
+                setWeatherIcon(cloudSleetIcon) 
+                break;
+            case 613:
+                setWeatherIcon(cloudSleetIcon) 
+                break;
+            case 210:
                 setWeatherIcon(cloudLightningIcon) 
                 break;
-            case 200 || 201 || 202 || 230 || 231 || 232:
+            case 211:
+                setWeatherIcon(cloudLightningIcon) 
+                break;
+            case 212:
+                setWeatherIcon(cloudLightningIcon) 
+                break;
+            case 221:
+                setWeatherIcon(cloudLightningIcon) 
+                break;
+            case 200:
+                setWeatherIcon(cloudLightningRainIcon) 
+                break;
+            case 201:
+                setWeatherIcon(cloudLightningRainIcon) 
+                break;
+            case 202:
+                setWeatherIcon(cloudLightningRainIcon) 
+                break;
+            case 230:
+                setWeatherIcon(cloudLightningRainIcon) 
+                break;
+            case 231:
+                setWeatherIcon(cloudLightningRainIcon) 
+                break;
+            case 232:
                 setWeatherIcon(cloudLightningRainIcon) 
                 break;
             case 701 || 711 || 721 || 731 || 751 || 761 || 762 || 771:
@@ -128,6 +215,22 @@ export default function HomePage ( {serverURL}) {
                 break;
         }
     }
+
+    function onFormSubmit(event) {
+        event.preventDefault();
+
+        getData();
+        getWeatherIcon();
+    }
+
+    useEffect(() => {
+        
+        setTimeout(() => {
+            getWeatherIcon()
+        }, 500);
+
+      }, [ weatherData ]);
+
 
     return (
         <div>
