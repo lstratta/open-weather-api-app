@@ -29,6 +29,9 @@ import '../../css/HomePage.css'
 
 export default function HomePage ( {serverURL}) {
 
+    const [ localTime, setLocalTime ] = useState( new Date() );
+    const [ searchedTime, setSearchedTime ] = useState( new Date() );
+
     // outbound data
     const [ city, setCity ] = useState("");
     const [ country, setCountry ] = useState("");
@@ -38,9 +41,11 @@ export default function HomePage ( {serverURL}) {
     const [ weatherData, setWeatherData ] = useState();
     const [ weatherIcon, setWeatherIcon ] = useState();
 
-    //console.log(serverURL)
+    let timeZone = 0;
+    weatherData ? timeZone = weatherData.timezone * 1000 + 1000 : timeZone = 0;
+    let date = new Date( localTime.getTime() + timeZone )
 
-    async function getData  () {
+    async function getData() {
 
         await axios.get(`${serverURL}/current-weather/${city}/metric`)
             .then(res => {
@@ -251,14 +256,29 @@ export default function HomePage ( {serverURL}) {
         getData();
     }
 
-    useEffect(() => {
+    useEffect( () => {
+
+        let localTimer = setInterval(() => setLocalTime(new Date()), 1000);
+        let searchedTimer = setInterval( () => setSearchedTime( date ), 1000 ) 
+
+        return function cleanup() {
+            clearInterval(localTimer)
+            clearInterval(searchedTimer)
+        }
+
+    })
+
+    useEffect( () => {
         
         setTimeout(() => {
             getWeatherIcon()
         }, 500);
 
-      }, [ weatherData, weatherIcon ]);
+    }, [ weatherData, weatherIcon ]);
 
+
+      
+    
 
     return (
         <div>
@@ -295,26 +315,6 @@ export default function HomePage ( {serverURL}) {
                             >Submit</button> */}
                         
                         </div>
-
-                    {/* <form onSubmit={onFormSubmit}>
-                        <div className='row justify-content-center'>
-                            <div className="col-20 col-sm-9 col-md-8 mb-3">
-                                    <input 
-                                    className='form-control form-control-lg' 
-                                    type="text" 
-                                    value={city.city}
-                                    onChange={e => setCity(e.target.value)}
-                                    name="location" 
-                                    id="" 
-                                    placeholder='Find a city...'
-                                    />
-                            </div>                        
-                            <div className='col-3 col-sm-3 col-md-1 mb-5'>
-                                <button className='btn btn-lg btn-primary' >Search</button>
-                            </div>
-                        </div>
-                    </form> */}
-
                     </div>
 
                 </div>
@@ -326,8 +326,17 @@ export default function HomePage ( {serverURL}) {
                     {/* ROW 1 */}
                     <div className="row align-items-center justify-content-center">
 
-                        <div className="col-sm-3 text-center">
-                            Your local time
+                        <div className="col-sm-3">
+                            <div className="card bg-dark text-light">
+                                <div className="card-body text-center">
+                                    <h3 className='card-title'>
+                                        { localTime.toLocaleTimeString() }
+                                    </h3>
+                                    <h4 className="card-text">
+                                        Your Local Time
+                                    </h4>
+                                </div>
+                            </div>
                         </div>
                 
                         <div className="col-sm-3 text-center">
@@ -335,21 +344,60 @@ export default function HomePage ( {serverURL}) {
                         </div>
 
                         <div className='col-sm-3 text-center'>
-                            { weatherData && <p className='display-5'>{weatherData.name} {weatherData.sys.country}</p> }
+                            { weatherData && <p className='display-5'> {weatherData.name} {weatherData.sys.country} </p> }
                         </div>
-                        <div className="col-sm-3 text-center">
-                            London time
+                        
+                        <div className="col-sm-3">
+                            <div className="card bg-dark text-light">
+                                <div className="card-body text-center">
+                                    <h3 className='card-title'>
+                                        { weatherData ? searchedTime.toLocaleTimeString() : localTime.toLocaleTimeString() }
+                                    </h3>
+                                    <h4 className="card-text">
+                                        { weatherData ? weatherData.name : "Your Local Time" }
+                                    </h4>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
 
                     {/* ROW 2 */}
-                    <div className="row align-items-center justify-content-center py-5">
+                    <div className="row align-items-center justify-content-center pt-5">
                         
-                        <div className="col-sm-3 text-center">Temp</div>
-                        <div className="col-sm-3 text-center">Feels Like</div>
-                        <div className="col-sm-3 text-center">High</div>
-                        <div className="col-sm-3 text-center">Low</div>
+                        <div className="col-sm-3 text-center">
+                            Temp
+                        </div>
+
+                        <div className="col-sm-3 text-center">
+                            Feels Like
+                        </div>
+
+                        <div className="col-sm-3 text-center">
+                            High
+                        </div>
+
+                        <div className="col-sm-3 text-center">
+                            Low
+                        </div>
+                        
+                    </div>
+
+                    {/* ROW 3 */}
+                    <div className="row align-items-center justify-content-center pt-3">
+                        
+                        <div className="col-sm-3 text-center">
+                            <p>30&#176;C</p>
+                        </div>
+                        <div className="col-sm-3 text-center">
+                            <p>30&#176;C</p>
+                        </div>
+                        <div className="col-sm-3 text-center">
+                            <p>30&#176;C</p>
+                        </div>
+                        <div className="col-sm-3 text-center">
+                            <p>30&#176;C</p>
+                        </div>
                         
                     </div>
                 </div>
