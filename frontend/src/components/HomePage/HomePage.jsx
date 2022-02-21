@@ -25,6 +25,8 @@ import cloudFogIcon from "/node_modules/bootstrap-icons/icons/cloud-fog.svg";
 import windIcon from "/node_modules/bootstrap-icons/icons/wind.svg";
 import tornadoIcon from "/node_modules/bootstrap-icons/icons/tornado.svg";
 
+import '../../css/HomePage.css'
+
 export default function HomePage ( {serverURL}) {
 
     // outbound data
@@ -235,6 +237,14 @@ export default function HomePage ( {serverURL}) {
         }
     }
 
+    function handleKeyPress(event) {
+        if (event.key === "Enter"){
+            getData();
+        }
+
+        return false;
+    }
+
     function onFormSubmit(event) {
         event.preventDefault();
 
@@ -247,50 +257,103 @@ export default function HomePage ( {serverURL}) {
             getWeatherIcon()
         }, 500);
 
-      }, [ weatherData ]);
+      }, [ weatherData, weatherIcon ]);
 
 
     return (
         <div>
+            {/* HERO SECTION */}
+            <section className="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+            
+                <div className="container">
+                    
+                    
+                    {/* HEADLINE */}
+                    <div className="">
 
-            {/* HEADLINE */}
-            <div className="row justify-content-center">
+                        <h1 className="display-4 mt-5 mb-5 text-center">The Open Weather App</h1>
 
-                <h1 className="display-2 col-8 mt-5 mb-5 text-center">The Weather App</h1>
+                    </div>
 
-            </div>
-
-            {/* SEARCH BAR */}
-            <form onSubmit={onFormSubmit}>
-                <div className='row justify-content-center'>
-
-                    <div className="col-20 col-sm-9 col-md-8 mb-3">
+                    {/* SEARCH BAR */}
+                    <div className="d-sm-flex justify-content-center">
+                        <div className="input-group news-input pb-5 ">
                             <input 
-                            className='form-control form-control-lg' 
-                            type="text" 
-                            value={city.city}
-                            onChange={e => setCity(e.target.value)}
-                            name="location" 
-                            id="" 
-                            placeholder='Find a city...'
+                                className='form-control form-control-lg rounded-pill text-center' 
+                                type="text" 
+                                value={city.city}
+                                onChange={e => setCity(e.target.value)}
+                                name="location" 
+                                id="" 
+                                placeholder='Find a city...'
+                                onKeyPress={handleKeyPress}
                             />
-                    </div>                        
+                            {/* <button 
+                                className="btn btn-success btn-lg" 
+                                type="submit" 
+                                onClick={onFormSubmit}
+                            >Submit</button> */}
+                        
+                        </div>
 
-                    <div className='col-3 col-sm-3 col-md-1 mb-5'>
-                        <button className='btn btn-lg btn-primary' >Search</button>
+                    {/* <form onSubmit={onFormSubmit}>
+                        <div className='row justify-content-center'>
+                            <div className="col-20 col-sm-9 col-md-8 mb-3">
+                                    <input 
+                                    className='form-control form-control-lg' 
+                                    type="text" 
+                                    value={city.city}
+                                    onChange={e => setCity(e.target.value)}
+                                    name="location" 
+                                    id="" 
+                                    placeholder='Find a city...'
+                                    />
+                            </div>                        
+                            <div className='col-3 col-sm-3 col-md-1 mb-5'>
+                                <button className='btn btn-lg btn-primary' >Search</button>
+                            </div>
+                        </div>
+                    </form> */}
+
                     </div>
 
                 </div>
-            </form>
+            </section>
 
-            
             {/* DATA REPRESENTATION */}
-            <div className='row justify-content-center'>
+            <section className='p-5'>   
+                <div className="container">
+                    {/* ROW 1 */}
+                    <div className="row align-items-center justify-content-center">
 
-                { weatherData && <h3 className='col-4 col-sm-4 col-md-3 col-lg-3 col-xl-2'>{weatherData.name}, {weatherData.sys.country}</h3> }
-                { weatherData && <img className='col-4 col-sm-4 col-md-3 col-lg-3 col-xl-2' src={weatherIcon} alt="Weather Icon" /> }
-            </div>
+                        <div className="col-sm-3 text-center">
+                            Your local time
+                        </div>
+                
+                        <div className="col-sm-3 text-center">
+                            { weatherData && <img className='img-fluid' id="searchWeatherIcon" src={weatherIcon} alt="Weather Icon"/> }
+                        </div>
 
+                        <div className='col-sm-3 text-center'>
+                            { weatherData && <p className='display-5'>{weatherData.name} {weatherData.sys.country}</p> }
+                        </div>
+                        <div className="col-sm-3 text-center">
+                            London time
+                        </div>
+
+                    </div>
+
+                    {/* ROW 2 */}
+                    <div className="row align-items-center justify-content-center py-5">
+                        
+                        <div className="col-sm-3 text-center">Temp</div>
+                        <div className="col-sm-3 text-center">Feels Like</div>
+                        <div className="col-sm-3 text-center">High</div>
+                        <div className="col-sm-3 text-center">Low</div>
+                        
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }

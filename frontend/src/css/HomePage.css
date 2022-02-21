@@ -1,0 +1,33 @@
+/* body::before {
+    display: block;
+    content: '';
+    height: 60px;
+  }
+  
+#map {
+width: 100%;
+height: 100%;
+border-radius: 10px;
+} */
+
+/* Hero section */
+
+@media (min-width: 768px) {
+    .news-input {
+        width: 50%;
+    }
+}
+
+/* Data Representation */
+@media (min-width: 576px) {
+    #searchWeatherIcon {
+        width: 50%;
+    }
+}
+
+@media (max-width: 575px) {
+    #searchWeatherIcon {
+        width: 30%;
+        justify-content: center;
+    }
+} 
