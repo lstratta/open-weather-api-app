@@ -42,6 +42,8 @@ export default function HomePage ( {serverURL}) {
     const [ weatherIcon, setWeatherIcon ] = useState();
 
     let timeZone = 0;
+    // the timezone from the GET request * 1000 to turn into unix timecode milliseconds,
+    // then + 1000 milliseconds so that it matches the current seconds
     weatherData ? timeZone = weatherData.timezone * 1000 + 1000 : timeZone = 0;
     let date = new Date( localTime.getTime() + timeZone )
 
@@ -71,7 +73,7 @@ export default function HomePage ( {serverURL}) {
         }
     }
 
-    // A very ugly switch statement
+    // A very ugly switch statement to get all the icons
     function getWeatherIcon () {
 
         console.log("WEATHER DATA ID" + weatherData.weather[0].id);
@@ -276,10 +278,6 @@ export default function HomePage ( {serverURL}) {
 
     }, [ weatherData, weatherIcon ]);
 
-
-      
-    
-
     return (
         <div>
             {/* HERO SECTION */}
@@ -324,7 +322,7 @@ export default function HomePage ( {serverURL}) {
             <section className='p-5'>   
                 <div className="container">
                     {/* ROW 1 */}
-                    <div className="row align-items-center justify-content-center">
+                    <div className="row align-items-center justify-content-evenly">
 
                         <div className="col-sm-3">
                             <div className="card bg-dark text-light">
@@ -343,8 +341,8 @@ export default function HomePage ( {serverURL}) {
                             { weatherData && <img className='img-fluid' id="searchWeatherIcon" src={weatherIcon} alt="Weather Icon"/> }
                         </div>
 
-                        <div className='col-sm-3 text-center'>
-                            { weatherData && <p className='display-5'> {weatherData.name} {weatherData.sys.country} </p> }
+                        <div className='col-sm-3 text-center '>
+                            { weatherData && <p className='display-6'> {weatherData.name}, {weatherData.sys.country} </p> }
                         </div>
                         
                         <div className="col-sm-3">
@@ -363,40 +361,58 @@ export default function HomePage ( {serverURL}) {
                     </div>
 
                     {/* ROW 2 */}
-                    <div className="row align-items-center justify-content-center pt-5">
-                        
-                        <div className="col-sm-3 text-center">
-                            Temp
-                        </div>
-
-                        <div className="col-sm-3 text-center">
-                            Feels Like
-                        </div>
-
-                        <div className="col-sm-3 text-center">
-                            High
-                        </div>
-
-                        <div className="col-sm-3 text-center">
-                            Low
-                        </div>
-                        
-                    </div>
-
-                    {/* ROW 3 */}
                     <div className="row align-items-center justify-content-center pt-3">
-                        
-                        <div className="col-sm-3 text-center">
-                            <p>30&#176;C</p>
+
+                    <div className="col-sm-3">
+                            <div className="card bg-dark text-light">
+                                <div className="card-body text-center">
+                                    <h3 className='card-title'>
+                                        { weatherData && weatherData.main.temp}&#176;C
+                                    </h3>
+                                    <p className="card-text">
+                                        Temp
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div className="col-sm-3 text-center">
-                            <p>30&#176;C</p>
+
+                        <div className="col-sm-3">
+                            <div className="card bg-dark text-light">
+                                <div className="card-body text-center">
+                                    <h3 className='card-title'>
+                                        { weatherData && weatherData.main.feels_like }&#176;C
+                                    </h3>
+                                    <p className="card-text">
+                                        Feels Like
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div className="col-sm-3 text-center">
-                            <p>30&#176;C</p>
+
+                        <div className="col-sm-3">
+                            <div className="card bg-dark text-light">
+                                <div className="card-body text-center">
+                                    <h3 className='card-title'>
+                                        { weatherData && weatherData.main.temp_max }&#176;C
+                                    </h3>
+                                    <p className="card-text">
+                                        High
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div className="col-sm-3 text-center">
-                            <p>30&#176;C</p>
+
+                        <div className="col-sm-3">
+                            <div className="card bg-dark text-light">
+                                <div className="card-body text-center">
+                                    <h3 className='card-title'>
+                                        { weatherData && weatherData.main.temp_min }&#176;C
+                                    </h3>
+                                    <p className="card-text">
+                                        Low
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                         
                     </div>
