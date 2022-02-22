@@ -18,7 +18,7 @@ router.route('/current-weather/:city/:units').get( async (req, res) => {
     // sanitise inputs
 
     // make request
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.params.city}&appid=${process.env.API_KEY}&units=${req.params.units}`)
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.params.city}&appid=${process.env.NODE_ENV}&units=${req.params.units}`)
         .then(data => {
             res.send(data.data);
         })
@@ -29,7 +29,7 @@ router.route('/current-weather/:city/:units').get( async (req, res) => {
 
 router.route('/current-weather/:city/:country/:units/').get( async (req, res) => {
 
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.params.city},${req.params.country}&appid=${process.env.API_KEY}&units=${req.params.units}`)
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.params.city},${req.params.country}&appid=${process.env.NODE_ENV}&units=${req.params.units}`)
         .then(data => {
             res.send(data.data);
         })
