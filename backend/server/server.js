@@ -8,7 +8,7 @@ const app = express();
 
 const PORT = process.env.PORT;
 
-console.log(process.env.NODE_ENV)
+//console.log(process.env.NODE_ENV)
 
 const homeRoutes = require('./routes/index');
 const testRoutes = require('./routes/test-data');
@@ -21,7 +21,6 @@ app.use(cors());
 
 // HTTP request logger
 if (process.env.NODE_ENV !== "test") app.use(morgan('tiny'));
-
 
 app.use('/', homeRoutes);
 app.use('/test-data', testRoutes);

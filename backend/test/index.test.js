@@ -32,15 +32,33 @@ describe('Test Suite', () => {
         })
 
         
+
+        // TEST 4 Inputs are sanit
  
     })
 
     describe(`Testing error handling`, () => {
 
-        xit(`TEST 1: Incorrect input handled correctly`, () => {
+        it ('TEST 1: An incorrect city name returns a 404 status code', async() => {
 
+            res = await chai.request(server)
+                .get('/current-weather/lnodon/metric')
+                .then( res => {
+                    expect(res).to.have.status(404);
+                    expect(res.body).to.have.property("error").eql("That location hasn't been found");
+                 })
+                 .catch( err => {
+                    throw err;
+                 });
         })
 
+    })
+
+    describe(`Testing user inputs are sanitised`, async => {
+
+        xit('TEST 1: User inputs are only allowed to be alphabetical characters', () => {
+
+        })
     })
 
     describe(`Testing database integration`, () => {

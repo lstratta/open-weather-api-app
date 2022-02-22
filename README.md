@@ -67,7 +67,7 @@ From there, you should be able to use the project.
 ## User Stories
 ---
 ```
-As a user, 
+As a user,
 I want to be able to view the current weather,
 So that I can leave the house with the correct clothing.
 
