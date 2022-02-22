@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building"
-
+                sh 'cd backend'
                 sh 'npm i'
             }
         }
