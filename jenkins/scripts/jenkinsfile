@@ -17,12 +17,12 @@ pipeline {
         stage('Test') {
 
             environment {
-                API_ENV = credentials('OpenWeatherAPI')
+                withCredentials([string(credentialsId: 'OpenWeatherAPI', variable: 'TOKEN' )
             }
 
             steps {
                 echo "Testing"
-                sh 'cd backend && npm run testjenkins --api=$API_ENV'
+                sh 'cd backend && npm run testjenkins --api=$TOKEN'
             }
         }
 
