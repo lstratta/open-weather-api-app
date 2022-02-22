@@ -28,6 +28,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Deploying"
+                sh './ci-cd/scripts/deploy.sh'
             }
         }
     }

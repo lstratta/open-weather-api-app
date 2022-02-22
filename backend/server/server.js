@@ -12,7 +12,7 @@ const PORT = 4848;
 
 //console.log(process.env.NODE_ENV)
 
-const homeRoutes = require('./routes/index');
+const homeRoutes = require('./routes/get-weather');
 const testRoutes = require('./routes/test-data');
 
 // Allows the data being sent by the POST
