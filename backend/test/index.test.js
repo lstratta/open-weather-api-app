@@ -21,7 +21,7 @@ describe('Test Suite', () => {
             expect(res.body).to.be.a('string').eql('Page found')
         })
 
-        it('TEST 2: Can make GET request to OpenWeather API for current day data at specific location', async () => {
+        xit('TEST 2: Can make GET request to OpenWeather API for current day data at specific location', async () => {
 
             res = await chai.request(server)
                     .get('/current-weather/london/uk/metric')
@@ -39,7 +39,7 @@ describe('Test Suite', () => {
 
     describe(`Testing error handling`, () => {
 
-        it ('TEST 1: An incorrect city name returns a 404 status code', async() => {
+        xit ('TEST 1: An incorrect city name returns a 404 status code', async() => {
 
             res = await chai.request(server)
                 .get('/current-weather/lnodon/metric')

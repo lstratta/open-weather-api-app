@@ -1,5 +1,7 @@
 require('dotenv').config( { path: `ENV_VARIABLES/.env.${process.env.NODE_ENV}` } );
 
+// console.log("PARSED KEY " + process.env.NODE_ENV);
+
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');

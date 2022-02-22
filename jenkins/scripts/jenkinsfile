@@ -6,11 +6,6 @@ pipeline {
         nodejs "NodeJS 16.14.0"
     }
 
-    environment {
-        API_ENV = credentials('OpenWeatherAPI')
-        TEST_ENV = credentials('jenkins-test-cred')
-    }
-
     stages {
         stage('Build') {
             steps {
@@ -20,9 +15,14 @@ pipeline {
         }
 
         stage('Test') {
+
+            environment {
+                API_ENV = credentials('OpenWeatherAPI')
+            }
+
             steps {
                 echo "Testing"
-                sh 'cd backend && npm test'
+                sh "cd backend && npm run testjenkins --api=${API_ENV}"
             }
         }
 
