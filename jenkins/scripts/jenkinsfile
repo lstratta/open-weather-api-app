@@ -10,9 +10,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                nodejs(nodeJSInstallationName: 'Node 16.x'')
                 echo "Building"
-                sh "echo ${TEST_ENV}"
-                // sh 'npm i'
+
+                sh 'npm i'
             }
         }
 
