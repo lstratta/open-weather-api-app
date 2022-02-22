@@ -14,4 +14,4 @@ npm install -g pm2
 
 pm2 kill
 
-pm2 start backend/server/server.js -f
+pm2 start backend/server/server.js
