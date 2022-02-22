@@ -14,7 +14,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                nodejs(nodeJSInstallationName: 'Node 16.x')
                 echo "Building"
 
                 sh 'npm i'
