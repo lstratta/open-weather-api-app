@@ -1,0 +1,34 @@
+pipeline {
+
+    agent any
+
+    tools {
+        nodejs "NodeJS 16.14.0"
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building"
+                sh 'cd backend && npm i'
+            }
+        }
+
+        stage('Test') {
+
+
+            steps {
+                withCredentials([string(credentialsId: 'OpenWeatherAPI', variable: 'TOKEN')]){
+                    echo "Testing"
+                    sh 'cd backend && npm run testjenkins --api=$TOKEN'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "Deploying"
+            }
+        }
+    }
+}
