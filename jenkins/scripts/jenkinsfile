@@ -22,7 +22,7 @@ pipeline {
 
             steps {
                 echo "Testing"
-                sh "cd backend && npm run testjenkins --api=$API_ENV"
+                sh 'cd backend && npm run testjenkins --api=$API_ENV'
             }
         }
 
