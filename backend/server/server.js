@@ -12,7 +12,7 @@ const PORT = 4848;
 
 //console.log(process.env.NODE_ENV)
 
-const homeRoutes = require('./routes/get-weather');
+const getWeatherRoutes = require('./routes/get-weather');
 const testRoutes = require('./routes/test-data');
 
 // Allows the data being sent by the POST
@@ -24,7 +24,7 @@ app.use(cors());
 // HTTP request logger
 if (process.env.NODE_ENV !== "test") app.use(morgan('tiny'));
 
-app.use('/', homeRoutes);
+app.use('/', getWeatherRoutes);
 app.use('/test-data', testRoutes);
 
 const server = app.listen(PORT, console.log('Server is listening on PORT:', PORT));
