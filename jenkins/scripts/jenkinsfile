@@ -16,9 +16,7 @@ pipeline {
             steps {
                 echo "Building"
                 sh 'pwd'
-                sh 'cd backend'
-                sh 'pwd'
-                sh 'npm i'
+                sh 'cd backend && npm i'
             }
         }
 
