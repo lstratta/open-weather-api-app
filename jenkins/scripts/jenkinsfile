@@ -1,0 +1,28 @@
+pipeline {
+
+    environment {
+        API_ENV = credentials('OpenWeatherAPI')
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building"
+                sh 'npm i'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Testing"
+                sh 'npm test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "Deploying"
+            }
+        }
+    }
+}
