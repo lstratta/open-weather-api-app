@@ -4,20 +4,22 @@ pipeline {
 
     environment {
         API_ENV = credentials('OpenWeatherAPI')
+        TEST_ENV = credentials('jenkins-test-cred')
     }
 
     stages {
         stage('Build') {
             steps {
                 echo "Building"
-                sh 'npm i'
+                sh "echo ${TEST_ENV}"
+                // sh 'npm i'
             }
         }
 
         stage('Test') {
             steps {
                 echo "Testing"
-                sh 'npm test'
+                // sh 'npm test'
             }
         }
 
