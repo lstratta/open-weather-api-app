@@ -8,7 +8,7 @@ const cors = require('cors');
 
 const app = express();
 
-const PORT = process.env.PORT;
+const PORT = 4848;
 
 //console.log(process.env.NODE_ENV)
 
