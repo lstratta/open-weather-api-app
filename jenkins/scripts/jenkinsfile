@@ -15,7 +15,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building"
-                sh 'pwd'
                 sh 'cd backend && npm i'
             }
         }
@@ -23,10 +22,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Testing"
-                sh 'pwd'
-                sh 'cd backend'
-
-                sh 'npm test'
+                sh 'cd backend &&npm test'
             }
         }
 
