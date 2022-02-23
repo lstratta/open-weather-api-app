@@ -4,9 +4,7 @@ bash <<EOF
 
     #!/bin/sh
 
-    cd /home/ubuntu/app/open-weather-api-app
-
-    git pull origin main
+    whoami
 
     pwd
 
