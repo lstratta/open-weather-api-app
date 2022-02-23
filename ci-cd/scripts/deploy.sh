@@ -4,11 +4,9 @@ bash <<EOF
 
     #!/bin/sh
 
-    cd /home/ubuntu/app/open-weather-api-app
+    cd /var/lib/jenkins/workspace/OpenWeatherApp
 
     git pull origin main
-
-    pwd
 
 EOF
 
