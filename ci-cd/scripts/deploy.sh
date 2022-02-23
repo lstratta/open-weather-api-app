@@ -10,7 +10,7 @@ sudo nvm install --lts
 
 npm install
 
-npm install -g pm2
+npm install pm2 -g
 
 pm2 kill
 
