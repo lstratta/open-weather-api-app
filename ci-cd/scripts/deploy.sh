@@ -1,5 +1,8 @@
 #!/bin/sh
+
 cat <<EOF 
+
+    #!/bin/sh
 
     cd /home/ubuntu/app/open-weather-api-app
 
