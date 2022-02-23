@@ -8,6 +8,8 @@ bash <<EOF
 
     whoami
 
+    su ubuntu
+
     printf "whoami"
 
     whoami
