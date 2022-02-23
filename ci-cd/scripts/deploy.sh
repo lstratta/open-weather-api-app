@@ -4,7 +4,7 @@ bash <<EOF
 
     #!/bin/sh
 
-    sudo su
+    sudo -S su
 
     cd /home/ubuntu/app/open-weather-api-app
 
