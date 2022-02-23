@@ -1,6 +1,6 @@
 #!/bin/sh
 
-bash <<EOF 
+sudo bash <<EOF 
 
     #!/bin/sh
 
@@ -8,17 +8,16 @@ bash <<EOF
 
     pwd
 
-    sudo -S git pull origin main
+    git pull origin main
 
-    sudo -S nvm install --lts
+    nvm install --lts
 
-    sudo -S npm install --production
+    npm install --production
 
-    sudo -S npm install pm2 -g
+    npm install pm2 -g
 
     pm2 kill
 
     pm2 start backend/server/server.js --watch
 
 EOF
-/etc/sudoers.d/
