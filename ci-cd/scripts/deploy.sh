@@ -8,13 +8,13 @@ bash <<EOF
 
     pwd
 
-    git pull origin main
+    sudo git pull origin main
 
-    nvm install --lts
+    sudo nvm install --lts
 
-    npm install --production
+    sudo npm install --production
 
-    npm install pm2 -g
+    sudo npm install pm2 -g
 
     pm2 kill
 
