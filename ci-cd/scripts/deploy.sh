@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export env.BUILD_ID=dontKillMePlease
+
 whoami
 
 cd /var/lib/jenkins/workspace/OpenWeatherApp
@@ -8,10 +10,6 @@ cd /var/lib/jenkins/workspace/OpenWeatherApp
 
 npm install --production
 
-npm install pm2 -g
-
-pm2 kill
-
-env.BUILD_ID=dontKillMePlease
+npm install -g pm2
 
 pm2 restart backend/server/server.js
