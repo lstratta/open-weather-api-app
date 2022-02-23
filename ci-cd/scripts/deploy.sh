@@ -6,6 +6,8 @@ bash <<EOF
 
     cd /home/ubuntu/app/open-weather-api-app
 
+    pwd
+
     git pull origin main
 
     nvm install --lts
