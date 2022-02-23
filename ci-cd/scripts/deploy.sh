@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cat <<EOF 
+bash <<EOF 
 
     #!/bin/sh
 
