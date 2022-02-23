@@ -6,6 +6,8 @@ bash <<EOF
 
     cd /home/ubuntu/app/open-weather-api-app
 
+    git pull origin main
+
     pwd
 
 EOF
