@@ -12,4 +12,6 @@ npm install --production
 
 npm install -g pm2
 
-pm2 restart backend/server/server.js
+pm2 kill
+
+pm2 start backend/server/server.js
