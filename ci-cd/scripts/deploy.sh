@@ -4,6 +4,8 @@ bash <<EOF
 
     #!/bin/sh
 
+    sudo su
+
     cd /home/ubuntu/app/open-weather-api-app
 
     pwd
