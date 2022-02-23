@@ -1,7 +1,5 @@
 #!/bin/sh
 
-export BUILD_ID=dontKillMePlease
-
 whoami
 
 cd /var/lib/jenkins/workspace/OpenWeatherApp
