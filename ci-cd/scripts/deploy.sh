@@ -4,15 +4,11 @@ bash <<EOF
 
     #!/bin/sh
 
-    printf "whoami"
+    cd /home/ubuntu/
 
-    whoami
+    mkdir jenkins-test-folder
 
-    su ubuntu
-
-    printf "whoami"
-
-    whoami
+    cd jenkins-test-folder
 
     pwd
 
