@@ -6,10 +6,10 @@ git pull origin main
 
 nvm install --lts
 
-sudo npm install --production
+sudo -S npm install --production
 
-sudo npm install pm2 -g
+sudo -S npm install pm2 -g
 
-sudo pm2 kill
+sudo -S pm2 kill
 
-sudo pm2 start backend/server/server.js --watch
+sudo -S pm2 start backend/server/server.js --watch
