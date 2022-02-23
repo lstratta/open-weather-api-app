@@ -12,6 +12,6 @@ npm install pm2 -g
 
 pm2 kill
 
-export BUILD_ID=dontKillMePlease
+env.BUILD_ID=dontKillMePlease
 
-pm2 restart server.js backend/server/server.js
+pm2 restart backend/server/server.js
