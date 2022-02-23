@@ -4,6 +4,8 @@ bash <<EOF
 
     #!/bin/sh
 
+    whoami
+
     cd /var/lib/jenkins/workspace/OpenWeatherApp
 
     git pull origin main
