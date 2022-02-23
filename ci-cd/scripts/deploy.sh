@@ -1,6 +1,5 @@
 #!/bin/sh
 
-bash <<EOF 
 
     #!/bin/sh
 
@@ -10,7 +9,7 @@ bash <<EOF
 
     git pull origin main
 
-EOF
+
 
 
 # git pull origin main
