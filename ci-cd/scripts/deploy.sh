@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export env.BUILD_ID=dontKillMePlease
+export BUILD_ID=dontKillMePlease
 
 whoami
 
