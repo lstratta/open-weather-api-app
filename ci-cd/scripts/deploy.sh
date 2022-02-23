@@ -1,10 +1,8 @@
 #!/bin/sh
 
-sudo bash <<EOF 
+bash <<EOF 
 
     #!/bin/sh
-
-    cd /home/ubuntu/app/open-weather-api-app
 
     pwd
 
@@ -14,7 +12,7 @@ sudo bash <<EOF
 
     npm install --production
 
-    npm install pm2 -g
+    npm install pm2 -g &
 
     pm2 kill
 
