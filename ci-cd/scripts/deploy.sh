@@ -4,6 +4,12 @@ bash <<EOF
 
     #!/bin/sh
 
+    printf "whoami"
+
+    whoami
+
+    printf "whoami"
+
     whoami
 
     pwd
