@@ -1,10 +1,10 @@
 #!/bin/sh
 
-cd ~/app/open-weather-app
+cd ~/app/open-weather-api-app
 
 git pull origin main
 
-sudo nvm install --lts
+nvm install --lts
 
 npm install --production
 
