@@ -6,9 +6,7 @@ bash <<EOF
 
     cd /home/ubuntu/app/open-weather-api-app
 
-    mkdir jenkins-test-folder
-
-    cd jenkins-test-folder
+    git pull origin main
 
     pwd
 
