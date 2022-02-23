@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd ~/app
+cd ~/app/open-weather-app
 
 git pull origin main
 
