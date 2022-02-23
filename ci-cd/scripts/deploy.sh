@@ -4,7 +4,7 @@ bash <<EOF
 
     #!/bin/sh
 
-    cd /home/ubuntu/
+    cd /home/ubuntu/app/open-weather-api-app
 
     mkdir jenkins-test-folder
 
