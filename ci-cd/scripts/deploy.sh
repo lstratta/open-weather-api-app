@@ -4,10 +4,6 @@ bash <<EOF
 
     #!/bin/sh
 
-    jenkins    ALL = NOPASSWD: /var/lib/jenkins/workspace/OpenWeatherApp/ci-cd/scripts/deploy
-
-    sudo -S su
-
     cd /home/ubuntu/app/open-weather-api-app
 
     pwd
@@ -25,3 +21,4 @@ bash <<EOF
     pm2 start backend/server/server.js --watch
 
 EOF
+/etc/sudoers.d/
