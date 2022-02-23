@@ -20,4 +20,4 @@ sudo bash <<EOF
 
     pm2 start backend/server/server.js --watch
 
-EOF
+EOF 
