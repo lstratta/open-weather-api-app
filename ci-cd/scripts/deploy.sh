@@ -14,4 +14,4 @@ npm install pm2 -g
 
 pm2 kill
 
-pm2 start backend/server/server.js
+pm2 start backend/server/server.js --watch
