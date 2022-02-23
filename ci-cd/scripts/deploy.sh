@@ -12,12 +12,12 @@ bash <<EOF
 
     nvm install --lts
 
-    sudo -S npm install --production
+    npm install --production
 
-    sudo -S npm install pm2 -g
+    npm install pm2 -g
 
-    sudo -S pm2 kill
+    pm2 kill
 
-    sudo -S pm2 start backend/server/server.js --watch
+    pm2 start backend/server/server.js --watch
 
 EOF
