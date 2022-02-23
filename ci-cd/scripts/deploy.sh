@@ -1,25 +1,19 @@
 #!/bin/sh
 
+whoami
 
-    #!/bin/sh
+cd /var/lib/jenkins/workspace/OpenWeatherApp
 
-    whoami
+nvm install --lts
 
-    cd /var/lib/jenkins/workspace/OpenWeatherApp
+npm install --production
 
-    git pull origin main
+npm install pm2 -g
 
+pm2 kill
 
+pm2 start backend/server/server.js --watch &
 
+    
 
-# git pull origin main
-
-    # nvm install --lts
-
-    # npm install --production
-
-    # npm install pm2 -g &
-
-    # pm2 kill
-
-    # pm2 start backend/server/server.js --watch
+   
