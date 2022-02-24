@@ -97,3 +97,5 @@ So that I remain safe in the current weather conditions.
 ```
 
 
+### Known Issues
+1. Adding any form of punctuation will cause an error but this will not be visible on the UI
