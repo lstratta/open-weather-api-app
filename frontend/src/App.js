@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App () {
 
-  const LOCAL_SERVER_URL = "http://localhost:5000";
+  const LOCAL_SERVER_URL = process.env.API_URL;
 
   return (
   

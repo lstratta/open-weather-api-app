@@ -99,6 +99,5 @@ So that I remain safe in the current weather conditions.
 
 ### Known Issues
 1. Adding any form of punctuation will cause an error but this will not be visible on the UI
-
-sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+1. The weather icons representing the weather aren't 100% accurate
 

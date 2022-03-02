@@ -24,9 +24,9 @@ app.use(cors());
 // HTTP request logger
 if (process.env.NODE_ENV !== "test") app.use(morgan('tiny'));
 
-app.use('/', getWeatherRoutes);
+app.use('/api', getWeatherRoutes);
 app.use('/test-data', testRoutes);
 
-const server = app.listen(PORT, console.log('Server is listening on PORT:', PORT));
+const server = app.listen(PORT, '127.0.0.1',console.log('Server is listening on PORT:', PORT));
 
 module.exports = server;
