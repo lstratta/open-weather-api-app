@@ -28,7 +28,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Deploying"
-                sh 'env.BUILD_ID=dontKillMe ci-cd/scripts./deploy.sh'
                 sh 'chmod +x ci-cd/scripts/deploy.sh'
                 sh './ci-cd/scripts/deploy.sh'
             }
